@@ -42,3 +42,4 @@ plt.grid(True)
 plt.tight_layout()  
 plt.savefig("atmosphere.png")
 plt.show()
+#yeah baby
