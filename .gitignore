@@ -1,0 +1,4 @@
+atmosphere.png
+*.csv
+__pycache__/
+.venv/
