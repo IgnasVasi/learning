@@ -1,0 +1,1 @@
+i think th erunning should be more because you cath more but i think its like up to or starting from some distance at which you get more by wlking and also i think there is an optimum speed at which you should walk/run

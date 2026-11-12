@@ -4,8 +4,9 @@ class Raindrop:
         self.y = y
         self.speed = speed
 
-    def step(self, dt):
+    def step(self, dt, wspeed = 0):
         self.y = self.y -self.speed*dt
+        self.x = self.x + wspeed*dt
 
     def on_ground(self):
          return self.y <= 0
@@ -20,12 +21,14 @@ class Person:
         self.x = self.x +self.speed*dt
     def is_hit(self, drop):
         return self.x <= drop.x <= self.x + self.width and 0 <= drop.y <= self.height
-        
-p = Person(speed=2.0)
 
-print(p.is_hit(Raindrop(x=0.1, y=1.0, speed=6.5)))   # True:  inside the body
-print(p.is_hit(Raindrop(x=0.1, y=2.5, speed=6.5)))   # False: above the head
-print(p.is_hit(Raindrop(x=1.0, y=1.0, speed=6.5)))   # False: in front of the person
 
-p.step(0.5)                                          # walks 1 m to the right
-print(p.is_hit(Raindrop(x=1.0, y=1.0, speed=6.5))) 
+if __name__ == "__main__":
+    p = Person(speed=2.0)
+
+    print(p.is_hit(Raindrop(x=0.1, y=1.0, speed=6.5)))   # True:  inside the body
+    print(p.is_hit(Raindrop(x=0.1, y=2.5, speed=6.5)))   # False: above the head
+    print(p.is_hit(Raindrop(x=1.0, y=1.0, speed=6.5)))   # False: in front of the person
+
+    p.step(0.5)                                          # walks 1 m to the right
+    print(p.is_hit(Raindrop(x=1.0, y=1.0, speed=6.5))) 
