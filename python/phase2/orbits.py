@@ -62,7 +62,6 @@ def orbit_elements(state):
     v = state[2:]
     r_len = np.linalg.norm(r)
     v_len = np.linalg.norm(v)
-
     energy = v_len**2/2-MU/r_len
     a =-MU/2/energy
     e_vec = ((v_len**2 - MU / r_len) * r - np.dot(r, v) * v) / MU
@@ -72,6 +71,7 @@ def orbit_elements(state):
     return {
         "a": a,
         "e": e,
+        "e_vec": e_vec,
         "omega_deg": omega,
         "periapsis_alt_km": (a * (1 - e) - R_EARTH) / 1000,
         "apoapsis_alt_km": (a * (1 + e) - R_EARTH) / 1000,
